@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d7c06d501d85446b92f5d1d9626f70, type: 3}
+  m_Name: LifeDrop
+  m_EditorClassIdentifier: Assembly-CSharp::LifeDrop
+  SpellName: Regenerate
+  icon: {fileID: -2100816896, guid: 9c47ddaec1ddc2544a6b8c902735066b, type: 3}
+  cooldown: 60
+  baseManaCost: 0
+  damageMult: 0
+  description: Consume all Mana to heal yourself.
+  prefab: {fileID: 5429930773054104050, guid: c54fcb83617fdbd4cac017acb3688982, type: 3}

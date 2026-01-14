@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155f279e44a14bb40a517f741ff1f420, type: 3}
+  m_Name: Teleport
+  m_EditorClassIdentifier: Assembly-CSharp::Gust
+  SpellName: Teleport
+  icon: {fileID: -661752390, guid: 9c47ddaec1ddc2544a6b8c902735066b, type: 3}
+  cooldown: 30
+  baseManaCost: 40
+  damageMult: 0.5
+  description: Teleport to the cursor and deal some damage.
+  teleportPrefab: {fileID: 5610722480820522096, guid: 80f92903a4590b647aa4f1dd1f9c03a0, type: 3}
+  radius: 1
