@@ -66,7 +66,6 @@ public class ShopManager : MonoBehaviour
         inGameUI.SetActive(true);
     }
 
-    // ----------- SHOP GENERATION ------------ //
     public void GenerateShopItems()
     {
         foreach (Transform child in ItemArea)
@@ -105,8 +104,6 @@ public class ShopManager : MonoBehaviour
         UpdateMoney();
     }
 
-    // ----------- PREISE NACH SELTENHEIT ------------ //
-
     public int GetPrice(ItemRarity rarity)
     {
         switch (rarity)
@@ -119,8 +116,6 @@ public class ShopManager : MonoBehaviour
             default: return 3;
         }
     }
-
-    // ----------- RARITY CURVES ------------ //
 
     [System.Serializable]
     public struct RarityCurve
@@ -145,13 +140,11 @@ public class ShopManager : MonoBehaviour
     public RarityCurve epicCurve = new RarityCurve { startPercent = 7, endPercent = 20, startLevel = 1, endLevel = 10 };
     public RarityCurve legendaryCurve = new RarityCurve { startPercent = 3, endPercent = 10, startLevel = 1, endLevel = 10 };
 
-    // Felder zum Speichern der fixen Prozentwerte pro Level
     private int cPercent;
     private int rPercent;
     private int ePercent;
     private int lPercent;
 
-    // Berechnung einmal pro Level
     public void CalculateChances(int level)
     {
         float c = commonCurve.GetPercent(level);
@@ -178,7 +171,6 @@ public class ShopManager : MonoBehaviour
             $"<color=#ff6f00>Legendary: {lPercent}%</color>";
     }
 
-    // GetRandomRarity nutzt jetzt die fixen Prozentwerte
     public ItemRarity GetRandomRarity()
     {
         int roll = Random.Range(0, 100);

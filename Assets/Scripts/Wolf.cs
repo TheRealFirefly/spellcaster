@@ -32,7 +32,6 @@ public class Wolf : MonoBehaviour
             TickManager.instance.OnTick -= DealDamage;
     }
 
-    // ---------------- Movement ----------------
     private void FixedUpdate()
     {
         if (player == null) return;
@@ -41,7 +40,6 @@ public class Wolf : MonoBehaviour
         rb.MovePosition(rb.position + dir * stats.speed * Time.fixedDeltaTime);
     }
 
-    // ---------------- Damage ----------------
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

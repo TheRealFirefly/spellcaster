@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RandomizeSprite : MonoBehaviour
 {
-    public Sprite[] PossibleSprites; // Liste mit allen möglichen Sprites
+    public Sprite[] PossibleSprites; 
 
     void Start()
     {

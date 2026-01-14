@@ -42,14 +42,12 @@ public class LoadoutSpellSlot : MonoBehaviour
     {
         if (storedSpell == null) return;
 
-        // Schon aktiv?
         for (int i = 0; i < spells.activeSpells.Length; i++)
         {
             if (spells.activeSpells[i] == storedSpell)
                 return;
         }
 
-        // Freier Slot
         for (int i = 0; i < spells.activeSpells.Length; i++)
         {
             if (spells.activeSpells[i] == null)
@@ -60,15 +58,12 @@ public class LoadoutSpellSlot : MonoBehaviour
             }
         }
 
-        // ❗ Kein Slot frei → ältesten entfernen
         SpellBase removed = spells.activeSpells[0];
 
-        // UI vom entfernten Spell updaten
         LoadoutSpellSlot oldSlot = FindSlotBySpell(removed);
         if (oldSlot != null)
             oldSlot.Unchoose();
 
-        // Array verschieben
         spells.activeSpells[0] = spells.activeSpells[1];
         spells.activeSpells[1] = storedSpell;
 

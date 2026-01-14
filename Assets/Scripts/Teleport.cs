@@ -12,15 +12,12 @@ public class Teleport : SpellBase
     {
         Transform player = PlayerStats.instance.transform;
 
-        // --- Spieler teleportieren ---
         player.position = position;
 
-        // --- Teleport-Effekt instanziieren ---
         if (teleportPrefab != null)
         {
             GameObject effect = Instantiate(teleportPrefab, position, Quaternion.identity);
 
-            // Radius skalieren wie beim Explosion-Spell
             float scaleRadius = radius * (1f + PlayerStats.instance.areaMult);
             float diameter = scaleRadius * 2f;
 
@@ -33,7 +30,6 @@ public class Teleport : SpellBase
             }
         }
 
-        // --- Gegner im Radius treffen ---
         float hitRadius = radius * (1f + PlayerStats.instance.areaMult);
         Collider2D[] hits = Physics2D.OverlapCircleAll(position, hitRadius);
         HashSet<EnemyStats> hitEnemies = new HashSet<EnemyStats>();
@@ -45,7 +41,6 @@ public class Teleport : SpellBase
 
             hitEnemies.Add(enemy);
 
-            // Schaden anwenden
             enemy.TakeDamage(damageMult * PlayerStats.instance.damage);
             
         }

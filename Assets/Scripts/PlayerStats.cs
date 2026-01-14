@@ -192,7 +192,6 @@ public class PlayerStats : MonoBehaviour
                 {
                     SpellBase newSpell = SpellDatabase.instance.LearnSpell(item.buffValue);
 
-                    // Prüfen, ob der Spell schon aktiv ist
                     bool alreadyHas = false;
                     for (int i = 0; i < spells.activeSpells.Length; i++)
                     {
@@ -202,9 +201,8 @@ public class PlayerStats : MonoBehaviour
                             break;
                         }
                     }
-                    if (alreadyHas) break; // nichts tun, Spell schon aktiv
+                    if (alreadyHas) break;
 
-                    // Finde freien Slot
                     bool placed = false;
                     for (int i = 0; i < spells.activeSpells.Length; i++)
                     {
@@ -216,19 +214,16 @@ public class PlayerStats : MonoBehaviour
                         }
                     }
 
-                    // Wenn kein Slot frei ist  ältesten ersetzen (Slot 0)
                     if (!placed)
                     {
-                        spells.activeSpells[0] = spells.activeSpells[1]; // verschiebe ältesten
-                        spells.activeSpells[1] = newSpell; // neuen Spell einsetzen
+                        spells.activeSpells[0] = spells.activeSpells[1]; 
+                        spells.activeSpells[1] = newSpell;
                     }
-
                     break;
                 }
-
-
         }
     }
+
     public void ConsumeItem(ItemData item)
     {
         if (item.type == BuffType.HP)

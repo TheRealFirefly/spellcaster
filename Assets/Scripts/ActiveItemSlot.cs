@@ -56,6 +56,7 @@ public class ActiveItemSlot : MonoBehaviour
         key.enabled = true;
         key.text = "F";
     }
+
     public void UpdateUI(int index)
     {
         if (currentSpell != null)

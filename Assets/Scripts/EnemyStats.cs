@@ -30,9 +30,9 @@ public class EnemyStats : MonoBehaviour
     private void Update()
     {
         if (PlayerStats.instance.transform.position.x < transform.position.x)
-            sr.flipX = false; // schaut nach rechts
+            sr.flipX = false;
         else
-            sr.flipX = true;  // schaut nach links
+            sr.flipX = true; 
     }
 
     public void TakeDamage(float amount)
@@ -105,6 +105,7 @@ public class EnemyStats : MonoBehaviour
 
         hitFlashRoutine = null;
     }
+
     void Die()
     {
         if (dead)
@@ -115,8 +116,6 @@ public class EnemyStats : MonoBehaviour
         WaveManager.instance.NotifyEnemyKilled();
         Destroy(gameObject);
     }
-
-
 
     public void ApplySlow(float amount, float duration)
     {

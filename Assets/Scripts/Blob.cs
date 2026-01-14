@@ -19,6 +19,7 @@ public class Blob : MonoBehaviour
     {
         enemyStats = GetComponent<EnemyStats>();
     }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,7 +44,7 @@ public class Blob : MonoBehaviour
             }
         }
     }
-    //Muss noch blockieren, dass er durch Büsche springt
+    
     private System.Collections.IEnumerator Jump()
     {
         isJumping = true;

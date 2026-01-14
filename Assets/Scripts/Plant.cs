@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlantEnemy : MonoBehaviour
 {
-    public GameObject projectilePrefab;   // Projektil-Prefab
+    public GameObject projectilePrefab;
     private Transform player;
     private EnemyStats enemyStats;
     private Animator animator;
@@ -30,25 +30,20 @@ public class PlantEnemy : MonoBehaviour
         {
             if (player != null && enemyStats != null)
             {
-                // Animation starten
                 animator.SetBool("Attack", true);
 
-                // Wartezeit während der Attack-Animation
                 yield return new WaitForSeconds(0.5f);
 
-                // Projektil schießen
                 ShootAtPlayer();
 
-                // Animation zurücksetzen
                 animator.SetBool("Attack", false);
 
-                // Warte bis zum nächsten Schuss
                 float interval = GetShootInterval();
                 yield return new WaitForSeconds(interval);
             }
             else
             {
-                yield return null; // Sicherheit, falls player oder stats null sind
+                yield return null;
             }
         }
     }
@@ -57,8 +52,6 @@ public class PlantEnemy : MonoBehaviour
     {
         return Mathf.Max(0.1f, 1f / Mathf.Sqrt(enemyStats.speed));
     }
-
-
 
     private void ShootAtPlayer()
     {

@@ -47,10 +47,12 @@ public class WaveManager : MonoBehaviour
             }
         }
     }
+
     private void OpenShop()
     { 
         ShopManager.instance.OpenShop(level);
     }
+
     public void StartNextWave()
     {
         currentWave++;
@@ -81,6 +83,7 @@ public class WaveManager : MonoBehaviour
         spawningFinished = true;
 
     }
+
     public void SpawnEnemyRequest()
     {
         int index = Random.Range(0, enemies.Length);
@@ -88,8 +91,8 @@ public class WaveManager : MonoBehaviour
 
         Vector3 playerPos = PlayerStats.instance.transform.position;
 
-        float minDistance = 7f; // Mindestabstand zum Spieler
-        float spawnRadius = 10f; // Maximaler Abstand vom Spieler
+        float minDistance = 7f; 
+        float spawnRadius = 10f; 
 
         Vector3 spawnPos;
         int tries = 0;
@@ -105,7 +108,7 @@ public class WaveManager : MonoBehaviour
 
             tries++;
         }
-        // Wiederholen, wenn zu nah am Spieler oder auf Blocker
+        
         while ((Vector3.Distance(spawnPos, playerPos) < minDistance
                || Physics2D.OverlapCircle(spawnPos, 0.3f)) && tries < maxTries);
 
@@ -122,7 +125,6 @@ public class WaveManager : MonoBehaviour
         );
 
     }
-
 
     public void NotifyEnemyKilled()
     {

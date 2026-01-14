@@ -54,7 +54,6 @@ public class Skeleton : MonoBehaviour
 
         animator.SetBool("Attack", true);
 
-        // kurze Ausholzeit
         yield return new WaitForSeconds(0.5f);
 
         if (player != null)
@@ -78,7 +77,6 @@ public class Skeleton : MonoBehaviour
 
         animator.SetBool("Attack", false);
 
-        // kurze Nachlaufzeit
         yield return new WaitForSeconds(0.3f);
 
         isAttacking = false;

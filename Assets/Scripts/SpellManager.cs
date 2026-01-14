@@ -78,18 +78,13 @@ public class SpellManager : MonoBehaviour
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
 
-        // --- Animation triggern ---
         animator.SetTrigger("Cast");
 
-        // --- Animation-Speed setzen ---
-        // Basisdauer der Cast-Animation (im Animator)
-        float baseAnimLength = 1.5f; // in Sekunden, die Animation dauert ohne Items
+        float baseAnimLength = 1.5f; 
         animator.speed = baseAnimLength / PlayerStats.instance.castSpeed;
 
-        // --- Warten bis Cast fertig ---
         yield return new WaitForSeconds(PlayerStats.instance.castSpeed);
 
-        // --- Spell ausführen ---
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector3 castPos = mainCam.ScreenToWorldPoint(mousePos);
         castPos.z = 0f;
@@ -102,7 +97,6 @@ public class SpellManager : MonoBehaviour
 
         PlayerStats.instance.currentMana -= activeSpells[index].manaCost;
 
-        // --- Cleanup ---
         animator.speed = 1f;
         controller.paused = false;
         PlayerStats.instance.immune = false;

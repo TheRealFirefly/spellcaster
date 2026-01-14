@@ -36,11 +36,10 @@ public class Boomerang : MonoBehaviour
         {
             if (ownerTransform == null)
             {
-                Destroy(gameObject); // Owner weg -> Bumerang zerstören
+                Destroy(gameObject); 
                 return;
             }
 
-            // Zurück zum Owner
             Vector2 returnDir = ((Vector2)ownerTransform.position - (Vector2)transform.position).normalized;
             transform.position += (Vector3)(returnDir * speed * Time.fixedDeltaTime);
 

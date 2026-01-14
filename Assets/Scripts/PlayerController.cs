@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         lastAttackTime = Time.time;
         ShootProjectile();
     }
+
     private void ShootProjectile()
     {
         m_PlayerStats.currentMana -= 5;
@@ -98,11 +99,10 @@ public class PlayerController : MonoBehaviour
 
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-        float baseScale = 0.5f; // hier Startgröße, z.B. 50% der Originalgröße
+        float baseScale = 0.5f; 
         float scale = baseScale * (1f + m_PlayerStats.areaMult);
         proj.transform.localScale = Vector3.one * scale;
 
-        // Init mit Damage, Range usw.
         proj.GetComponent<Projectile>().Init(
             direction,
             m_PlayerStats.damage,
@@ -110,7 +110,5 @@ public class PlayerController : MonoBehaviour
             Projectile.ProjectileOwner.Player,
             5f * 1f - m_PlayerStats.projecSpeed
         );
-
     }
-
 }

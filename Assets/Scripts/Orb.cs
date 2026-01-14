@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OrbEnemy : MonoBehaviour
 {
-    public EnemyStats stats;             // HP, Damage, Speed
+    public EnemyStats stats;
     public Transform player;
     public Transform firePoint;
     public GameObject projectilePrefab;
@@ -11,7 +11,7 @@ public class OrbEnemy : MonoBehaviour
     public int spreadCount = 3;
     public float spreadAngle = 30f;
 
-    private float shootIntervalTicks;   // abhängig von stats.speed
+    private float shootIntervalTicks;
     private float shootTimer = 0f;
 
     private void OnEnable()
@@ -33,14 +33,12 @@ public class OrbEnemy : MonoBehaviour
 
     private void UpdateShootInterval()
     {
-        // shootInterval abhängig von speed: schneller -> häufiger schießen
-        // Minimum 0.5 Ticks, Maximum 3 Ticks z.B.
         shootIntervalTicks = Mathf.Clamp(3f - stats.speed, 0.5f, 3f);
     }
 
     private void HandleTick()
     {
-        shootTimer += 1f; // 1 Tick
+        shootTimer += 1f;
 
         if (shootTimer >= shootIntervalTicks)
         {
@@ -53,7 +51,6 @@ public class OrbEnemy : MonoBehaviour
     {
         if (player == null) return;
 
-        // Bewegung abhängig von speed
         Vector2 dir = (player.position - transform.position).normalized;
         rb.MovePosition(rb.position + dir * stats.speed * Time.fixedDeltaTime);
     }
@@ -70,8 +67,7 @@ public class OrbEnemy : MonoBehaviour
 
             GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-            // Projektilgeschwindigkeit proportional zur stats.speed
-            float projectileSpeed = 2f * stats.speed; // Basisgeschwindigkeit * Orb-Speed
+            float projectileSpeed = 2f * stats.speed;
             proj.GetComponent<Projectile>().Init(shootDir, stats.damage, 5f, Projectile.ProjectileOwner.Enemy, projectileSpeed);
         }
     }

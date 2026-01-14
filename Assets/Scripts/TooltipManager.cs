@@ -31,15 +31,12 @@ public class TooltipManager : MonoBehaviour
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             parentRect,
             mousePos,
-            null, // Screen Space Overlay
+            null, 
             out Vector2 localPoint))
         {
             rectTransform.anchoredPosition = localPoint + offset;
         }
     }
-
-
-
 
     public void Show(string text)
     {

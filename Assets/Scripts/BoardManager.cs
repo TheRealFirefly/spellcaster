@@ -3,7 +3,6 @@ using UnityEngine.Tilemaps;
 
 public class BoardManager : MonoBehaviour
 {
-
     private Tilemap m_Tilemap;
 
     public int Width;
@@ -45,9 +44,7 @@ public class BoardManager : MonoBehaviour
                 {
                     Tile tile = GroundTiles[Random.Range(0, GroundTiles.Length)];
                     m_Tilemap.SetTile(new Vector3Int(x, y, 0), tile);
-                    
 
-                    // Büsche random spawnen
                     if (Random.value < 0.1f && !(x == Width/2 && y== Height/2))
                     {
                         int index = Random.Range(0, Obstacle.Length);
@@ -57,7 +54,6 @@ public class BoardManager : MonoBehaviour
                 }
             }
         }
-
         Player.Spawn(this, new Vector2Int(Width / 2, Height / 2));
     }
 
